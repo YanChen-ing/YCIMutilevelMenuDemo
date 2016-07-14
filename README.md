@@ -1,3 +1,6 @@
+
+![image](https://github.com/YanChen-ing/YCIMutilevelMenuDemo/blob/master/preview.gif)
+
 # YCIMutilevelMenu
 控件名: **_多级菜单_**  
 继承: UIView
