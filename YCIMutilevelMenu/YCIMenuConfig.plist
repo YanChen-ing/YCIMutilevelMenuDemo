@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>iPhone</key>
+	<dict>
+		<key>fontSize</key>
+		<integer>16</integer>
+		<key>menuMinWidth</key>
+		<integer>80</integer>
+	</dict>
+	<key>iPad</key>
+	<dict>
+		<key>fontSize</key>
+		<integer>20</integer>
+		<key>menuMinWidth</key>
+		<integer>150</integer>
+	</dict>
+</dict>
+</plist>
