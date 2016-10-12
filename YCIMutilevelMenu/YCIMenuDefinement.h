@@ -37,6 +37,8 @@ typedef NS_ENUM(NSUInteger, YCIMenuType) {
     YCIMenuTypeDateRange,
     /** 字母索引列表 */
     YCIMenuTypeLetterIndexTable,
+    /** 多选列表 */
+    YCIMenuTypeMutiSelectTable,
     
 };
 

@@ -52,8 +52,11 @@ static NSString *const optionClassNameKey = @"optionClassName";
 + (instancetype)menuOptionWithJsonFile:(NSString *)file;
 + (instancetype)menuOptionWithDictionary:(NSDictionary *)config;
 
-/** 选中选项链,A->B->C*/
-- (NSArray *)selectedOptionLink;
+/**
+ *  选中选项链,A->B->C.
+ *  isExclude 是否排除置顶段,如果为真,则选中队列中不包含置顶段.
+ */
+- (NSArray *)selectedOptionLinkExcludeTopSection:(BOOL)isExclude;
 
 /** 清除用户操作信息,递归清除路径下所有option操作信息 */
 - (void)clearUserOperation;

@@ -70,6 +70,21 @@
 			<key>cellHeight</key>
 			<integer>44</integer>
 		</dict>
+		<key>YCIMenuTypeMutiSelectTable</key>
+		<dict>
+			<key>optionClassName</key>
+			<string>YCIMutiSelectOption</string>
+			<key>menuClassName</key>
+			<string>YCIMutiSelectTable</string>
+			<key>autoBackgroundColor</key>
+			<true/>
+			<key>showLoading</key>
+			<false/>
+			<key>canShowDetail</key>
+			<true/>
+			<key>cellHeight</key>
+			<integer>44</integer>
+		</dict>
 	</dict>
 	<key>iPad</key>
 	<dict>

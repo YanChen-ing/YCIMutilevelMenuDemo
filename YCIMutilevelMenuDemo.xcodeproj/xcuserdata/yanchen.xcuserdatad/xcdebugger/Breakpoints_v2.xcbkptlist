@@ -19,29 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YCIMutilevelMenu/YCIMutilevelMenu.m"
-            timestampString = "490006027.18516"
+            filePath = "YCIMutilevelMenu/Options/YCIMenuOption.m"
+            timestampString = "497953324.59945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "-configMenuData:WithOption:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YCIMutilevelMenu/YCIMutilevelMenu.m"
-            timestampString = "490006187.095252"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "-allowedPropertyNamesFromNames:InClass:"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "-setValue:forUndefinedKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

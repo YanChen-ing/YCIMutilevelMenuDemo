@@ -36,7 +36,7 @@
      */
     [self.MLMenu.rootOption.options[0] enumerateObjectsUsingBlock:^(YCIMenuOption *  _Nonnull option, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSArray *selectedOptionLink = [option selectedOptionLink];
+        NSArray *selectedOptionLink = [option selectedOptionLinkExcludeTopSection:YES];
         NSLog(@"////%@",selectedOptionLink);
     
         /**

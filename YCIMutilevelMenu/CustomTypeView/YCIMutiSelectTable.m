@@ -1,20 +1,20 @@
 //
-//  YCIMenuDefaultTable.m
+//  YCIMutiSelectTable.m
 //  YCIMutilevelMenuDemo
 //
-//  Created by yanchen on 16/7/6.
+//  Created by yanchen on 16/10/8.
 //  Copyright © 2016年 yanchen. All rights reserved.
 //
 
-#import "YCIMenuDefaultTable.h"
+#import "YCIMutiSelectTable.h"
 
-@interface YCIMenuDefaultTable ()<UITableViewDelegate,UITableViewDataSource>
+@interface YCIMutiSelectTable ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation YCIMenuDefaultTable
+@implementation YCIMutiSelectTable
 
 - (void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
@@ -31,10 +31,11 @@
     
 }
 
+
 - (void)reloadData{
     [self setOption:self.option];
     [self refreshViews];
-    [self.delegate refreshViewsFrame];
+//    [self.delegate refreshViewsFrame];
 }
 
 - (void)refreshViews{
@@ -45,28 +46,21 @@
 - (void)setSelectedCell{
     
     if (_option.options.count == 0) {
+        //下级列表无数据
         return;
     }
     
-    NSIndexPath *indexPath = _option.selectedIndexPath;
-    
-    if (self.defaultSelectedFirstRow && !indexPath) {
-        
-        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        
+    if (_option.selectedOptions.count == 0) {
+        //无选中项
+        return;
     }
     
-    YCIMenuOption *selectedOption = _option.options[indexPath.section][indexPath.row];
+    //绑定选中状态
     
-    if (selectedOption) {
-        
-        if (selectedOption.canShowDetail) {
-            //recursive
-            [self.delegate addOption:selectedOption];
-        }
-        
-        [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    for (NSIndexPath *indexPath in _option.selectedIndexPaths) {
+        [_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:0];
     }
+
 }
 
 #pragma mark - ------- UITableView
@@ -98,19 +92,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //插入选中数组
+    
+    [_option.selectedIndexPaths addObject:indexPath];
+}
 
-    _option.selectedIndexPath = indexPath;
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //show next menu
-    YCIMenuOption *selectedOption = _option.options[indexPath.section][indexPath.row];
-
-    if (selectedOption.canShowDetail) {
-        [self.delegate option:_option showOption:selectedOption];
-        return;
-    }
+    //删除选中数组
     
-    [self.delegate option:_option showOption:nil];
-    
+    [_option.selectedIndexPaths removeObject:indexPath];
 }
 
 
@@ -127,6 +119,8 @@
         table.dataSource = self;
         table.rowHeight  = _option.cellHeight;
         
+        table.allowsMultipleSelection = YES;
+        
         table.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         Class cellClass = NSClassFromString(_option.cellClassName);
@@ -142,6 +136,7 @@
 }
 
 - (void)setOption:(YCIMenuOption *)option{
+    
     _option = option;
     
     if (option.hasDefaultTopSection == NO) {
@@ -158,7 +153,7 @@
     NSArray *firstSection = option.options[0];
     
     if (firstSection != option.topSection) {
-
+        
         [arr addObjectsFromArray:option.options];
         option.options = arr;
     }
@@ -168,5 +163,6 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
     self.tableView.backgroundColor = backgroundColor;
 }
+
 
 @end

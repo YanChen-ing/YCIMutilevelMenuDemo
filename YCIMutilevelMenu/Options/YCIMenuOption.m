@@ -26,7 +26,8 @@ static NSString *const optionOptionsKey   = @"options";
                 @"YCIMenuTypeDefault",
                 @"YCIMenuTypeDefaultRequest",
                 @"YCIMenuTypeDateRange",
-                @"YCIMenuTypeLetterIndexTable"
+                @"YCIMenuTypeLetterIndexTable",
+                @"YCIMenuTypeMutiSelectTable"
                 ];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"YCIMenuOptionConfig" ofType:@"plist"];
@@ -137,12 +138,15 @@ static NSString *const optionOptionsKey   = @"options";
             obj = sections;
         }
         
-        [self setValue:obj forKey:key];
+        if (![key isEqualToString:optionClassNameKey]) {
+            [self setValue:obj forKey:key];
+        }
+        
         
     }];
 }
 
-- (NSArray *)selectedOptionLink{
+- (NSArray *)selectedOptionLinkExcludeTopSection:(BOOL)isExclude{
     
     if (!self.selectedIndexPath || self.options.count == 0) {
         return nil;
@@ -150,12 +154,16 @@ static NSString *const optionOptionsKey   = @"options";
     
     NSMutableArray *link = [NSMutableArray array];
     
-    [self addSelectedOptionToMutableArray:link];
+    [self addSelectedOptionToMutableArray:link excludeTopSection:isExclude];
+    
+    if (link.count == 0) {
+        return nil;
+    }
     
     return link;
 }
 
-- (void)addSelectedOptionToMutableArray:(NSMutableArray *)arr{
+- (void)addSelectedOptionToMutableArray:(NSMutableArray *)arr excludeTopSection:(BOOL)isExclude{
     
     if (!self.selectedIndexPath || self.options.count == 0) {
         return;
@@ -163,6 +171,11 @@ static NSString *const optionOptionsKey   = @"options";
     
     NSInteger section = [self.selectedIndexPath indexAtPosition:0];
     NSInteger row     = [self.selectedIndexPath indexAtPosition:1];
+    
+    //exclude top section
+    if (section == 0 && self.topSection.count > 0 && isExclude) {
+        return;
+    }
     
     YCIMenuOption *selectedOption = self.options[section][row];
     
@@ -172,7 +185,7 @@ static NSString *const optionOptionsKey   = @"options";
     
     [arr addObject:selectedOption];
     
-    [selectedOption addSelectedOptionToMutableArray:arr];
+    [selectedOption addSelectedOptionToMutableArray:arr excludeTopSection:isExclude];
     
 }
 
@@ -201,7 +214,7 @@ static NSString *const optionOptionsKey   = @"options";
 }
 
 //- (BOOL)hasRightDetailData{
-//    
+//
 //    switch (self.type) {
 //        case YCIMenuTypeDefaultRequest:
 //        {
@@ -210,7 +223,7 @@ static NSString *const optionOptionsKey   = @"options";
 //            }
 //        }
 //            break;
-//            
+//
 //        default:
 //            return YES;
 //    }
@@ -294,6 +307,7 @@ static NSString *const optionOptionsKey   = @"options";
     _topSection = options;
     if (options.count > 0) {
         _hasDefaultTopSection = YES;
+        _canShowDetail = YES;
     }else{
         _hasDefaultTopSection = NO;
         _topSection = nil;

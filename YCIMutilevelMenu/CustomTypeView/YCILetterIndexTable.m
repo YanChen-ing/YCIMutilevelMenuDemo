@@ -60,6 +60,10 @@
 
 - (void)setSelectedCell{
     
+    if (_option.options.count == 0) {
+        return;
+    }
+    
     NSIndexPath *indexPath = _option.selectedIndexPath;
     
     if (self.defaultSelectedFirstRow && !indexPath) {
