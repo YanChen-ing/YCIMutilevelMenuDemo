@@ -35,7 +35,7 @@
      * 获取多级菜单的操作信息.
      */
     [self.MLMenu.rootOption.options[0] enumerateObjectsUsingBlock:^(YCIMenuOption *  _Nonnull option, NSUInteger idx, BOOL * _Nonnull stop) {
-        
+        //各选项选择链
         NSArray *selectedOptionLink = [option selectedOptionLinkExcludeTopSection:YES];
         NSLog(@"////%@",selectedOptionLink);
     
@@ -57,16 +57,16 @@
     YCIMenuOption *rootOption = [YCIMenuOption menuOptionWithJsonFile:@"filter.json"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        YCIMenuOption *firstOption = rootOption.options[0][0];
+        YCIMenuOption *networkOption = rootOption.options[0][1];
         NSMutableArray *marr = [NSMutableArray array];
         NSMutableArray *section = [NSMutableArray array];
         
         [section addObjectsFromArray:[self requestedOption].options[0]];
         [marr addObject:section];
         
-        firstOption.options = marr;
-        firstOption.showLoading = NO;
-        [self.MLMenu reloadOption:firstOption];
+        networkOption.options = marr;
+        networkOption.showLoading = NO;
+        [self.MLMenu reloadOption:networkOption];
         
     });
     
@@ -103,21 +103,15 @@
                                   
                                   @{
                                       @"title":@"小李子",
-                                      @"type":@(3),
-                                      @"topSection":@[
-                                              @{
-                                                  @"title":@"全部销售",
-                                                  },
-                                              ],
-                                      @"options":@[
-                                              @{
-                                                  @"title":@"小小",
-                                                  },
-                                              @{
-                                                  @"title":@"丽丽",
-                                                  
-                                                  },
-                                              ]
+                                      @"sid":@1
+                                      },
+                                  @{
+                                      @"title":@"小小",
+                                      @"sid":@2
+                                      },
+                                  @{
+                                      @"title":@"丽丽",
+                                      @"sid":@3
                                       },
                                   ]
                           };

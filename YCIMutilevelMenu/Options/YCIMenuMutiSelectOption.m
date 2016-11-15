@@ -6,10 +6,17 @@
 //  Copyright © 2016年 yanchen. All rights reserved.
 //
 
-#import "YCIMutiSelectOption.h"
+#import "YCIMenuMutiSelectOption.h"
 
-@implementation YCIMutiSelectOption
+@implementation YCIMenuMutiSelectOption
 
+#pragma mark - ------- Override
+
+- (void)clearUserOperation{
+    self.selectedIndexPaths = nil;
+}
+
+#pragma mark - ------- Setter & Getter
 - (NSMutableArray<NSIndexPath *> *)selectedIndexPaths{
     
     if (!_selectedIndexPaths) {
@@ -37,5 +44,7 @@
     
     return mArr;
 }
+
+
 
 @end

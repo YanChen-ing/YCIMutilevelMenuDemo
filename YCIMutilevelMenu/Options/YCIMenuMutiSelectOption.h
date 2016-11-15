@@ -8,7 +8,7 @@
 
 #import "YCIMenuOption.h"
 
-@interface YCIMutiSelectOption : YCIMenuOption
+@interface YCIMenuMutiSelectOption : YCIMenuOption
 
 /**
  *  选中选项 <NSIndexPath>

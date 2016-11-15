@@ -1,22 +1,10 @@
-
 {   "title":"root",
     "sid":0,
-    "options":[
-               {   "title":"选择销售",
-               "sid":0,
-               "canShowDetail":1,
-               "showLoading":1,
-               "hasDefaultTopSection":1,
-               "topSection":[{
-                             "title":"全部主管"
-                             }]
-               },
-               
-               {   "title":"意向程度",
+    "options":[{   "title":"默认选项",
                "sid":1,
+               "topSection":[{   "title":"全部意向"
+                             }],
                "options":[
-                          {   "title":"全部意向"
-                          },
                           {   "title":"A类-有明确意愿",
                           "sid":3
                           },
@@ -37,61 +25,25 @@
                           }]
                },
                
-               {   "title":"来源",
-               "sid":2,
-               "options":[
-                          {   "title":"全部来源"
-                          },
-                          {   "title":"销售录入",
-                          "sid":1
-                          },
-                          {   "title":"白金客户",
-                          "sid":2
-                          },
-                          {   "title":"乌巢客户",
-                          "sid":3
-                          },
-                          {   "title":"页面注册",
-                          "sid":4
-                          },
-                          {   "title":"页面注册（无线）",
-                          "sid":5
-                          },
-                          {   "title":"来电咨询",
-                          "sid":6
-                          }]
+               {   "title":"网络请求加载及按姓名分组",
+               "sid":0,
+               "type":3,
+               "showLoading":1,
+               "topSection":[
+                             {   "title":"全部销售"
+                             }]
                },
                
-               {   "title":"申请状态",
-               "sid":4,
-               "options":[
-                          {   "title":"全部",
-                          "sid":0
-                          },
-                          {   "title":"待审核",
-                          "sid":1
-                          },
-                          {   "title":"审核通过",
-                          "sid":2
-                          },
-                          {   "title":"审核拒绝",
-                          "sid":3
-                          }]
-               },
-               
-               {   "title":"领取日期",
-               "type":2,
-               "sid":3
-               },
-               
-               {   "title":"申请日期",
-               "type":2,
-               "sid":5
+               {   "title":"日期区间选择",
+               "sid":3,
+               "type":2
                },
                
                {   "title":"多选选项",
                "type":4,
                "sid":6,
+               "topSection":[{   "title":"不限"
+                             }],
                "options":[
                           {   "title":"选项1",
                           "sid":0

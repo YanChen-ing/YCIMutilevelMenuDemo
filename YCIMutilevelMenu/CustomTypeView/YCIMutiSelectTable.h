@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YCIMutiSelectOption.h"
+#import "YCIMenuMutiSelectOption.h"
+
+/*
+ 可多选列表.
+ TopSection:仅支持一项.此项为排他性项.即:topSection和其他任何选项互斥.
+ */
 
 @interface YCIMutiSelectTable : UIView<YCIMenuProtocol>
 
-@property (strong, nonatomic) YCIMutiSelectOption *option;
+@property (strong, nonatomic) YCIMenuMutiSelectOption *option;
 
-//@property (nonatomic, weak) id <YCIMenuDelegate> delegate;
-//
-//@property (      nonatomic) BOOL defaultSelectedFirstRow;
+@property (      nonatomic) BOOL defaultSelectedFirstRow;
+
+
 
 @end

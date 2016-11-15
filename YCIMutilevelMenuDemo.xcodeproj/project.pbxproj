@@ -27,8 +27,8 @@
 		1684064D1D24C85400C6C644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1684064B1D24C85400C6C644 /* LaunchScreen.storyboard */; };
 		168406601D24EFBB00C6C644 /* YCIMutilevelMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684065F1D24EFBB00C6C644 /* YCIMutilevelMenu.m */; };
 		168406661D25143E00C6C644 /* YCIMenuOptionConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 168406651D25143E00C6C644 /* YCIMenuOptionConfig.plist */; };
+		16AE49D21DDAE2890094180C /* YCIMenuMutiSelectOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE49D11DDAE2890094180C /* YCIMenuMutiSelectOption.m */; };
 		16D242ED1DA8EA9D00079B4F /* YCIMutiSelectTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D242EC1DA8EA9D00079B4F /* YCIMutiSelectTable.m */; };
-		16D242F01DA8EC0D00079B4F /* YCIMutiSelectOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D242EF1DA8EC0D00079B4F /* YCIMutiSelectOption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,10 +68,10 @@
 		1684065E1D24EFBB00C6C644 /* YCIMutilevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIMutilevelMenu.h; sourceTree = "<group>"; };
 		1684065F1D24EFBB00C6C644 /* YCIMutilevelMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIMutilevelMenu.m; sourceTree = "<group>"; };
 		168406651D25143E00C6C644 /* YCIMenuOptionConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YCIMenuOptionConfig.plist; sourceTree = "<group>"; };
+		16AE49D01DDAE2890094180C /* YCIMenuMutiSelectOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIMenuMutiSelectOption.h; sourceTree = "<group>"; };
+		16AE49D11DDAE2890094180C /* YCIMenuMutiSelectOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIMenuMutiSelectOption.m; sourceTree = "<group>"; };
 		16D242EB1DA8EA9D00079B4F /* YCIMutiSelectTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIMutiSelectTable.h; sourceTree = "<group>"; };
 		16D242EC1DA8EA9D00079B4F /* YCIMutiSelectTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIMutiSelectTable.m; sourceTree = "<group>"; };
-		16D242EE1DA8EC0D00079B4F /* YCIMutiSelectOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIMutiSelectOption.h; sourceTree = "<group>"; };
-		16D242EF1DA8EC0D00079B4F /* YCIMutiSelectOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIMutiSelectOption.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 				1661ADB61D2F988200B63ABA /* YCIMenuDateRangeOption.m */,
 				1661ADB21D2E5BF700B63ABA /* YCIMenuLetterIndexOption.h */,
 				1661ADB31D2E5BF700B63ABA /* YCIMenuLetterIndexOption.m */,
-				16D242EE1DA8EC0D00079B4F /* YCIMutiSelectOption.h */,
-				16D242EF1DA8EC0D00079B4F /* YCIMutiSelectOption.m */,
+				16AE49D01DDAE2890094180C /* YCIMenuMutiSelectOption.h */,
+				16AE49D11DDAE2890094180C /* YCIMenuMutiSelectOption.m */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -267,6 +267,7 @@
 				168406451D24C85400C6C644 /* ViewController.m in Sources */,
 				168406421D24C85400C6C644 /* AppDelegate.m in Sources */,
 				1661ADB41D2E5BF700B63ABA /* YCIMenuLetterIndexOption.m in Sources */,
+				16AE49D21DDAE2890094180C /* YCIMenuMutiSelectOption.m in Sources */,
 				1661ADA41D2DF34E00B63ABA /* YCIMenuDefaultTableCell.m in Sources */,
 				1661AD9B1D2BB87A00B63ABA /* YCIDateRangePicker.m in Sources */,
 				1661ADAE1D2E380B00B63ABA /* YCIMenuOption.m in Sources */,
@@ -274,7 +275,6 @@
 				16D242ED1DA8EA9D00079B4F /* YCIMutiSelectTable.m in Sources */,
 				1661ADBA1D2F991400B63ABA /* YCIPickerView.m in Sources */,
 				168406601D24EFBB00C6C644 /* YCIMutilevelMenu.m in Sources */,
-				16D242F01DA8EC0D00079B4F /* YCIMutiSelectOption.m in Sources */,
 				1661ADAA1D2E354B00B63ABA /* YCILetterIndexHelper.m in Sources */,
 				1661AD9E1D2CEE5900B63ABA /* YCIMenuDefaultTable.m in Sources */,
 			);

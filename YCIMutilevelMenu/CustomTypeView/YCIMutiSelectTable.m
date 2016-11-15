@@ -10,6 +10,7 @@
 
 @interface YCIMutiSelectTable ()<UITableViewDelegate,UITableViewDataSource>
 
+
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
@@ -35,7 +36,7 @@
 - (void)reloadData{
     [self setOption:self.option];
     [self refreshViews];
-//    [self.delegate refreshViewsFrame];
+    //    [self.delegate refreshViewsFrame];
 }
 
 - (void)refreshViews{
@@ -52,6 +53,12 @@
     
     if (_option.selectedOptions.count == 0) {
         //无选中项
+        
+        if (self.defaultSelectedFirstRow) {
+            //默认选中
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:0];
+        }
         return;
     }
     
@@ -60,7 +67,7 @@
     for (NSIndexPath *indexPath in _option.selectedIndexPaths) {
         [_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:0];
     }
-
+    
 }
 
 #pragma mark - ------- UITableView
@@ -93,6 +100,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.section == 0) {
+        //清空所有选中
+        for (NSIndexPath *selectedIndexPath in _option.selectedIndexPaths) {
+            [tableView deselectRowAtIndexPath:selectedIndexPath animated:NO];
+        }
+        [_option.selectedIndexPaths removeAllObjects];
+        return;
+    }
+    
+    //取消topSection选中
+    if (_option.selectedIndexPaths.count == 0) {
+        NSIndexPath *selectedPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [tableView deselectRowAtIndexPath:selectedPath animated:NO];
+    }
+    
     //插入选中数组
     
     [_option.selectedIndexPaths addObject:indexPath];
@@ -100,9 +122,20 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.section == 0) {
+        return;
+    }
+    
     //删除选中数组
     
     [_option.selectedIndexPaths removeObject:indexPath];
+    
+    //默认选中topSection
+    
+    if (_option.selectedIndexPaths.count == 0 && self.defaultSelectedFirstRow) {
+        NSIndexPath *selectPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [tableView selectRowAtIndexPath:selectPath animated:NO scrollPosition:0];
+    }
 }
 
 
@@ -135,7 +168,7 @@
     return _tableView;
 }
 
-- (void)setOption:(YCIMenuOption *)option{
+- (void)setOption:(YCIMenuMutiSelectOption *)option{
     
     _option = option;
     

@@ -73,7 +73,7 @@
 		<key>YCIMenuTypeMutiSelectTable</key>
 		<dict>
 			<key>optionClassName</key>
-			<string>YCIMutiSelectOption</string>
+			<string>YCIMenuMutiSelectOption</string>
 			<key>menuClassName</key>
 			<string>YCIMutiSelectTable</string>
 			<key>autoBackgroundColor</key>
@@ -88,8 +88,27 @@
 	</dict>
 	<key>iPad</key>
 	<dict>
+		<key>YCIMenuTypeLetterIndexTable</key>
+		<dict>
+			<key>optionClassName</key>
+			<string>YCIMenuLetterIndexOption</string>
+			<key>menuClassName</key>
+			<string>YCILetterIndexTable</string>
+			<key>cellClassName</key>
+			<string>YCIMenuDefaultTableCell</string>
+			<key>autoBackgroundColor</key>
+			<false/>
+			<key>showLoading</key>
+			<false/>
+			<key>canShowDetail</key>
+			<true/>
+			<key>cellHeight</key>
+			<integer>50</integer>
+		</dict>
 		<key>YCIMenuTypeDefault</key>
 		<dict>
+			<key>optionClassName</key>
+			<string>YCIMenuOption</string>
 			<key>menuClassName</key>
 			<string>YCIMenuDefaultTable</string>
 			<key>autoBackgroundColor</key>
@@ -105,6 +124,8 @@
 		</dict>
 		<key>YCIMenuTypeDefaultRequest</key>
 		<dict>
+			<key>optionClassName</key>
+			<string>YCIMenuOption</string>
 			<key>menuClassName</key>
 			<string>YCIMenuDefaultTable</string>
 			<key>autoBackgroundColor</key>
@@ -120,6 +141,8 @@
 		</dict>
 		<key>YCIMenuTypeDateRange</key>
 		<dict>
+			<key>optionClassName</key>
+			<string>YCIMenuDateRangeOption</string>
 			<key>menuClassName</key>
 			<string>YCIDateRangePicker</string>
 			<key>autoBackgroundColor</key>
@@ -129,7 +152,22 @@
 			<key>canShowDetail</key>
 			<true/>
 			<key>cellHeight</key>
-			<integer>44</integer>
+			<integer>50</integer>
+		</dict>
+		<key>YCIMenuTypeMutiSelectTable</key>
+		<dict>
+			<key>optionClassName</key>
+			<string>YCIMenuMutiSelectOption</string>
+			<key>menuClassName</key>
+			<string>YCIMutiSelectTable</string>
+			<key>autoBackgroundColor</key>
+			<true/>
+			<key>showLoading</key>
+			<false/>
+			<key>canShowDetail</key>
+			<true/>
+			<key>cellHeight</key>
+			<integer>50</integer>
 		</dict>
 	</dict>
 </dict>
